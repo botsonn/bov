@@ -32,7 +32,7 @@ def private_panel(_):
             InlineKeyboardButton(text=_["S_B_5"], user_id=config.OWNER_ID),
         ],
         [
-            InlineKeyboardButton(text="ضـيف البـوت لمجموعتـك ✅", url=f"https://t.me/UUIYBOT?startgroup=true"),
+            InlineKeyboardButton(text="ضـيف البـوت لمجموعتـك ✅", url=f"https://t.me/{app.username}?startgroup=true"),
         ],
     ]
     return buttons
