@@ -1,3 +1,4 @@
+
 from datetime import datetime
 from pyrogram import filters
 from pyrogram.errors import PeerIdInvalid
@@ -18,11 +19,10 @@ def ReplyCheck(message: Message):
 
 
 infotext = (
-    "[{full_name}](tg://user?id={user_id})\n\n"
-    " ➻ ايـديك: `{user_id}`\n"
-    " ➻ اسـمك : `{first_name}`\n"
-    " ➻ يـوزرك: `@{username}`\n"
-    " ➻ اخـر نشاط: `{last_online}`"
+    "↢ وفي النهاية أنتم السيئون وهم الأبرياء\n\n"
+    "↯ : اسمك : ›: `{first_name}`\n"
+    "↯ : ايديك : ›: `{user_id}`\n"
+    "↯ : معرفك : ›: `@{username}`\n"
 )
 
 
