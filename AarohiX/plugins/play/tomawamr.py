@@ -10,8 +10,8 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, 
     filters.command("الاوامر", "")
 )
 async def cr_source(client: Client, message: Message):
-    await message.reply_photo(
-        photo=f"https://telegra.ph/file/749d8c5667e3677df2e4a.jpg",
+    await message.reply_video(
+        video=f"https://telegra.ph/file/dcfb16b43f82c3a82c2aa.mp4",
         caption=f"""**↢ اهلا يا {message.from_user.mention} في قائمه الاوامر اختار ما تريد من الاسفل 👇
         """,
         reply_markup=InlineKeyboardMarkup(
@@ -41,7 +41,7 @@ async def cr_source(client: Client, message: Message):
 async def crusage(_, callback_query: CallbackQuery):
     await callback_query.answer()
     await callback_query.message.edit_text(
-        text="""**[𝗦𝗼𝘂𝗥𝗰𝗲 𝗧𝗲𝘁𝗼](https://t.me/wx_pm)**
+        text="""**اهلا بك في قائمه الاوامر**
 ╮⦿ اهلا هذه قائمه اوامر المجموعات
 │᚜⦿ كتم او الغاء كتم
 │᚜⦿ المكتومين
@@ -69,11 +69,11 @@ async def crusage(_, callback_query: CallbackQuery):
 async def cr_usage(_, callback_query: CallbackQuery):
     await callback_query.answer()
     await callback_query.message.edit_text(
-        text="""**[𝗦𝗼𝘂𝗥𝗰𝗲 𝗧𝗲𝘁𝗼](https://t.me/wx_pm)**
+        text="""**اهلا بك في قائمه الاوامر**
 ╮⦿ اهلا هذه قائمه اوامر القنوات
 │᚜⦿ تشغيل + اسم الاغنيه
 │᚜⦿ فيديو + اسم الاغنيه (معطل مؤقتا)
-╯⦿ المطـور : @TopTeto
+╯⦿ جاري تحديث قائمه الاونلين
 """,
         reply_markup=InlineKeyboardMarkup(
             [
@@ -95,7 +95,7 @@ async def cr_usage(_, callback_query: CallbackQuery):
 async def c_usage(_, callback_query: CallbackQuery):
     await callback_query.answer()
     await callback_query.message.edit_text(
-        text="""**[𝗦𝗼𝘂𝗥𝗰𝗲 𝗧𝗲𝘁𝗼](https://t.me/wx_pm)**
+        text="""**اهلا بك في قائمه الاوامر**
 ╮⦿ اهلا هذه قائمه مميزات البوت
 │᚜⦿ تفعيل الاذان
 │᚜⦿ اسكرين + رابط الموقع
@@ -137,7 +137,7 @@ async def c_usage(_, callback_query: CallbackQuery):
 @app.on_callback_query(filters.regex("back"))
 async def cr_back(_, callback_query: CallbackQuery):
     await callback_query.edit_message_media(
-        media=InputMediaPhoto("https://telegra.ph/file/520cb8756d31bb3184de2.jpg",
+        media=InputMediaVideo("https://telegra.ph/file/dcfb16b43f82c3a82c2aa.mp4",
         caption=f"""**↢ اهلا يا {message.from_user.mention} في قائمه الاوامر اختار ما تريد من الاسفل 👇**""",),
         reply_markup=InlineKeyboardMarkup(
             [

@@ -20,9 +20,9 @@ from pyrogram.errors import MessageNotModified
     
 )
 async def cr_source(client: Client, message: Message):
-    await message.reply_photo(
-        photo=f"https://telegra.ph/file/749d8c5667e3677df2e4a.jpg",
-        caption=f"""**[𝗦𝗼𝘂𝗥𝗰𝗲 𝗧𝗲𝘁𝗼](https://t.me/wx_pm)**\nمرحبا بك عزيزي {message.from_user.mention}\nانا بوت الذكاء الاصطناعي الخاص بسورس تيتو \nلمعرفة الاوامر اضغط على الأزرار بالأسفل👇\n**[𝗦𝗼𝘂𝗥𝗰𝗲 𝗧𝗲𝘁𝗼](https://t.me/wx_pm)**""",
+    await message.reply_video(
+        video=f"https://telegra.ph/file/dcfb16b43f82c3a82c2aa.mp4",
+        caption=f"""**مرحبا بك عزيزي {message.from_user.mention}\nانا بوت الذكاء الاصطناعي الخاص بسورس تيتو \nلمعرفة الاوامر اضغط على الأزرار بالأسفل👇\n**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -50,12 +50,12 @@ async def cr_source(client: Client, message: Message):
 async def cr_usage(_, callback_query: CallbackQuery):
     await callback_query.answer()
     await callback_query.message.edit_text(
-        text="""**[الذكاء الاصتناعي](https://t.me/wx_pm)**
+        text="""**الذكاء الاصتناعي 🥺**
 ★¦ اهلا بك عزيزي في قسم الأوامر
 ★¦ لتتمكن من تشغيل الذكاء الاصطناعي فقط اكتب
 ★¦ /gpt - لـلـسـؤال آي سـؤال بالـذكـاء الاسـطـناعي
 
-**[الذكاء الاصتناعي](https://t.me/wx_pm)**""",
+**الذكاء الاصتناعي**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
