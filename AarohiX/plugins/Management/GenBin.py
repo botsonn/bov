@@ -1,30 +1,27 @@
-from pyrogram import Client, filters
-import random
+import requests
+from pyrogram import Client
+from pyrogram import filters
 from AarohiX import app
 
-VALID_PREFIXES = [4, 5, 6, 3]
+random_user_api_url = 'https://randomuser.me/api/'
 
-def luhn_checksum(card_number):
-    def digits_of(n):
-        return [int(d) for d in str(n)]
-    digits = digits_of(card_number)
-    odd_digits = digits[-1::-2]
-    even_digits = digits[-2::-2]
-    checksum = sum(odd_digits)
-    for d in even_digits:
-        checksum += sum(digits_of(d * 2))
-    return checksum % 10
-
-def generate_test_card_number(prefix, length):
-    card_number = [random.randint(0, 9) for _ in range(length - len(str(prefix)) - 1)]
-    card_number.insert(0, str(prefix))
-    card_number = ''.join(map(str, card_number))
-    checksum = luhn_checksum(int(card_number) * 10)
-    return card_number + str((10 - checksum) % 10)
-
-@app.on_message(filters.command("genbin"))
-def generate(client, message):
-    prefix = random.choice(VALID_PREFIXES)
-    length = 6
-    card_number = generate_test_card_number(prefix, length)
-    message.reply_text(f"**BIN Successfully Generated**\n{card_number} ✅")
+@app.on_message(filters.command("توليد عناوين", prefixes=""))
+def generate_fake_user_by_country(client, message):
+    country_name = message.text.split("/fake ", maxsplit=1)[1]
+    
+    response = requests.get(f'{random_user_api_url}?nat={country_name}')
+    
+    if response.status_code == 200:
+        user_info = response.json()['results'][0]
+        first_name = user_info['name']['first']
+        last_name = user_info['name']['last']
+        email = user_info['email']
+        country = user_info['location']['country']
+        state = user_info['location']['state']
+        city = user_info['location']['city']
+        street = user_info['location']['street']['name']
+        zip_code = user_info['location']['postcode']
+        message.reply_text(f"**↢ الاسم :** {first_name} {last_name}\n\n**↢ الدولة :** {country}\n\n**↢ الولاية :** {state}\n\n**↢ المدينة :** {city}\n\n**↢ العنوان :** {street}\n\n**↢ الرمز البريدي :** {zip_code}")
+    else:
+        message.reply_text(f"↢ فشل في إنشاء معلومات مستخدم مزيفة لـ  {country_name}.")
+        
