@@ -13,7 +13,7 @@ async def hhhki(client: Client, message: Message):
         name = usr.first_name
         usr_id = message.from_user.id
         mention = message.from_user.mention
-        await app.send_message(OWNER_ID, f"⦿ قام {mention} \n\n- بارسال رسالة للبوت \n\n- {msg}")
+        await app.send_message(OWNER_ID, f"↢ قام {mention} \n\n- بارسال رسالة للبوت \n\n- {msg}")
     else:
         print("Received message from unknown user.")
 
