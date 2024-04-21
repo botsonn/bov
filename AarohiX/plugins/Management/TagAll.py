@@ -13,7 +13,7 @@ async def tag_all_users(_,message):
 
     replied = message.reply_to_message  
     if len(message.command) < 2 and not replied:
-        await message.reply_text("◍ قم بعمل ريبلي علي المسدج \n\n √") 
+        await message.reply_text("↢ قم بعمل ريبلي علي المسدج \n\n √") 
         return                  
     if replied:
         SPAM_CHATS.append(message.chat.id)      
@@ -45,7 +45,7 @@ async def tag_all_users(_,message):
             usernum += 1
             usertxt += f"\n⊚ [{m.user.first_name}](tg://user?id={m.user.id})\n"
             if usernum == 5:
-                await app.send_message(message.chat.id,f'{text}\n{usertxt}\n\n◍ لايقاف التاك ارسل ايقاف المنشن \n\n √')
+                await app.send_message(message.chat.id,f'{text}\n{usertxt}\n\n↢ لايقاف التاك ارسل ايقاف المنشن \n\n √')
                 await asyncio.sleep(2)
                 usernum = 0
                 usertxt = ""                          
@@ -62,8 +62,8 @@ async def cancelcmd(_, message):
             SPAM_CHATS.remove(chat_id)
         except Exception:
             pass   
-        return await message.reply_text("*◍ تم ايقاف المنشن بنجاح \n\n √*")     
+        return await message.reply_text("*↢ تم ايقاف المنشن بنجاح \n\n √*")     
                                      
     else :
-        await message.reply_text("*◍ تم بنجاح اذا تريد المنشن مره اخري راسلني \n\n √*")  
+        await message.reply_text("*↢ تم بنجاح اذا تريد المنشن مره اخري راسلني \n\n √*")  
         return       
