@@ -8,7 +8,7 @@ from pyrogram.errors import FloodWait
 from pyrogram.types import Message, InputTextMessageContent, InlineKeyboardMarkup, InlineKeyboardButton
 
 from AarohiX import app
-from AarohiX.plugins.play.filters import command
+from AarohiX.strings.filters import command
 
 @app.on_message(command(["تيك"]))
 async def tiktok_video(client, message):
