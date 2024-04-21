@@ -4,7 +4,7 @@ from pyrogram.types import ReplyKeyboardMarkup
 from AarohiX.misc import SUDOERS
 from AarohiX import app
 
-admin_keyboard = ReplyKeyboardMarkup([
+dev_keyboard = ReplyKeyboardMarkup([
     ['تحديث السورس 📥'],
     ['رستر البوت 🕹️'],
     ['اذاعه للكل 🔊'],
@@ -15,8 +15,8 @@ admin_keyboard = ReplyKeyboardMarkup([
 
 # دالة للتعامل مع أمر /admin
 @app.on_message(filters.command("Dev") &  filters.private & SUDOERS)
-async def admin(client, message):
-    await message.reply("↢ لوحة المفاتيح الخاصة بالمطور", reply_markup=admin_keyboard)
+async def dev(client, message):
+    await message.reply("↢ لوحة المفاتيح الخاصة بالمطور", reply_markup=dev_keyboard)
 
 # دالة للتعامل مع الأوامر الأخرى
 @app.on_message(filters.text & ~filters.command("Dev") & filters.private & SUDOERS)
