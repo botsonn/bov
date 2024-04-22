@@ -16,7 +16,7 @@ from random import  choice, randint
 async def teto(client: Client, message: Message):
     rl = random.randint(2,75)
     url = f"https://t.me/vnnkli/{rl}"
-    await client.send_photo(message.chat.id,url,caption="◍ تم اختيار لك صوره \n\n √",
+    await client.send_photo(message.chat.id,url,caption="↢ تم اختيار لك صوره \n\n √",
     reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -48,7 +48,7 @@ async def teto(client: Client, message: Message):
 async def teto(client: Client, message: Message):
     rl = random.randint(2,926)
     url = f"https://t.me/GifWaTaN/{rl}"
-    await client.send_animation(message.chat.id,url,caption="◍ تم اختيار لك ملصق \n\n √",
+    await client.send_animation(message.chat.id,url,caption="↢ تم اختيار لك ملصق \n\n √",
     reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -63,7 +63,7 @@ async def teto(client: Client, message: Message):
 async def teto(client: Client, message: Message):
     rl = random.randint(24,618)
     url = f"https://t.me/EIEI06/{rl}"
-    await client.send_voice(message.chat.id,url,caption="◍ تم اختيار لك تلاوه \n\n √",
+    await client.send_voice(message.chat.id,url,caption="↢ تم اختيار لك تلاوه \n\n √",
     reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -78,7 +78,7 @@ async def teto(client: Client, message: Message):
 async def teto(client: Client, message: Message):
     rl = random.randint(3,102)
     url = f"https://t.me/LoreBots9/{rl}"
-    await client.send_photo(message.chat.id,url,caption="◍ تم اختيار لك اقتباس \n\n √",
+    await client.send_photo(message.chat.id,url,caption="↢ تم اختيار لك اقتباس \n\n √",
     reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -93,7 +93,7 @@ async def teto(client: Client, message: Message):
 async def teto(client: Client, message: Message):
     rl = random.randint(2,153)
     url = f"https://t.me/flflfldld/{rl}"
-    await client.send_photo(message.chat.id,url,caption="◍ تم اختيار لك هيدرا بنجاح \n\n √",
+    await client.send_photo(message.chat.id,url,caption="↢ تم اختيار لك هيدرا بنجاح \n\n √",
     reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -108,7 +108,7 @@ async def teto(client: Client, message: Message):
 async def teto(client: Client, message: Message):
     rl = random.randint(2,216)
     url = f"https://t.me/photo_teto1/{rl}"
-    await client.send_photo(message.chat.id,url,caption="◍ تم اختيار لك افتار بنات \n\n √",
+    await client.send_photo(message.chat.id,url,caption="↢ تم اختيار لك افتار بنات \n\n √",
     reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -123,7 +123,7 @@ async def teto(client: Client, message: Message):
 async def teto(client: Client, message: Message):
     rl = random.randint(2,148)
     url = f"https://t.me/vgbmm/{rl}"
-    await client.send_photo(message.chat.id,url,caption="◍ تم اختيار لك افتار شباب \n\n √",
+    await client.send_photo(message.chat.id,url,caption="↢ تم اختيار لك افتار شباب \n\n √",
     reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -138,7 +138,7 @@ async def teto(client: Client, message: Message):
 async def teto(client: Client, message: Message):
     rl = random.randint(2,82)
     url = f"https://t.me/opuml/{rl}"
-    await client.send_voice(message.chat.id,url,caption="◍ تم اختيار لك سوره قرآنيه \n\n √",
+    await client.send_voice(message.chat.id,url,caption="↢ تم اختيار لك سوره قرآنيه \n\n √",
     reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -153,7 +153,7 @@ async def teto(client: Client, message: Message):
 async def teto(client: Client, message: Message):
     rl = random.randint(2,114)
     url = f"https://t.me/ggcnjj/{rl}"
-    await client.send_voice(message.chat.id,url,caption="◍ تم اختيار لك الشيخ النقشبندي \n\n √",
+    await client.send_voice(message.chat.id,url,caption="↢ تم اختيار لك الشيخ النقشبندي \n\n √",
     reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -168,7 +168,7 @@ async def teto(client: Client, message: Message):
 async def teto(client: Client, message: Message):
     rl = random.randint(7,265)
     url = f"https://t.me/telawatnader/{rl}"
-    await client.send_voice(message.chat.id,url,caption="◍ تم اختيار لك الشيخ عبد الباسط \n\n √",
+    await client.send_voice(message.chat.id,url,caption="↢ تم اختيار لك الشيخ عبد الباسط \n\n √",
     reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -183,7 +183,7 @@ async def teto(client: Client, message: Message):
 async def teto(client: Client, message: Message):
     rl = random.randint(2,148)
     url = f"https://t.me/yoipopl/{rl}"
-    await client.send_audio(message.chat.id,url,caption="◍ تم اختيار لك استوري \n\n √",
+    await client.send_audio(message.chat.id,url,caption="↢ تم اختيار لك استوري \n\n √",
     reply_markup=InlineKeyboardMarkup(
             [
                 [
