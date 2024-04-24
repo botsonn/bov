@@ -26,7 +26,7 @@ async def sticker_image(client: Client, message: Message):
 
 
 
-@app.on_message(command(['زوجني','ز']))
+@app.on_message(filters.command(["زوجني"], ""))
 def call_random_member(client, message):
     chat_id = message.chat.id
     members = [
