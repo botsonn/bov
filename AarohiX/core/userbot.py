@@ -73,11 +73,11 @@ class Userbot(Client):
                 f"تم تشغيل المساعد  {self.one.name}"
             )
             try:
-                await self.one.send_message(config.LOGGER_ID, f"تم رفع المساعد فالصانع بنجاح 🚦\nالاسم : {self.four.id}"
+                await self.one.send_message(config.LOGGER_ID, f"تم رفع المساعد فالصانع بنجاح 🚦\nالاسم : {self.four.id} \nالايدي : {self.four.id}"
                 )
             except:
                 LOGGER(__name__).error(
-                    f"Assistant Account 1 has failed to access the log Group. Make sure that you have added your assistant to your log group and promoted as admin !"
+                    f"Assistant Account 1 has failed to access the log Group. Make sure that you have added your assistant to your log group and promoted as admin ! "
                 )
                 sys.exit()
         if config.STRING2:
