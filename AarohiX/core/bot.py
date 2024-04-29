@@ -29,7 +29,7 @@ class Dil(Client):
         try:
             await self.send_message(
                 chat_id=config.LOGGER_ID,
-                text=f"تم بنجاح تشغيل البوت 🚦\n الاسم : {self.mention}\nايدي بوتك :<code>{self.id}</code>\nمعرف البوت : @{self.username}",
+                text=f"<u><b>~{self.mention} \n~تم تشغيل البوت :</b><u>\n\n~ ايدي البوت : <code>{self.id}</code>\n~ اسم البوت : {self.name}\n~ اليوزر : @{self.username}",
             )
         except (errors.ChannelInvalid, errors.PeerIdInvalid):
             LOGGER(__name__).error(
