@@ -108,8 +108,8 @@ async def get_thumb(videoid):
     background = enhancer.enhance(0.6)
     draw = ImageDraw.Draw(background)
     arial = ImageFont.truetype("AarohiX/assets/font.ttf", 30)
-    font = ImageFont.truetype("AarohiX/assets/font.ttf", 30)
-    title_font = ImageFont.truetype("AarohiX/assets/font.ttf", 45)
+    font = ImageFont.truetype("AarohiX/assets/font2.ttf", 30)
+    title_font = ImageFont.truetype("AarohiX/assets/font2.ttf", 45)
 
 
     circle_thumbnail = crop_center_circle(youtube, 400, 20)
