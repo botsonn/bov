@@ -350,7 +350,7 @@ async def play_commnd(
             return await mystic.delete()
         else:
             try:
-                await VIP.stream_call(url)
+                await Dil.stream_call(url)
             except NoActiveGroupCall:
                 await mystic.edit_text(_["black_9"])
                 return await app.send_message(
@@ -567,8 +567,8 @@ async def play_music(client, CallbackQuery, _):
     return await mystic.delete()
 
 
-@app.on_callback_query(filters.regex("VIPmousAdmin") & ~BANNED_USERS)
-async def VIPmous_check(client, CallbackQuery):
+@app.on_callback_query(filters.regex("DilmousAdmin") & ~BANNED_USERS)
+async def Dilmous_check(client, CallbackQuery):
     try:
         await CallbackQuery.answer(
             "» ʀᴇᴠᴇʀᴛ ʙᴀᴄᴋ ᴛᴏ ᴜsᴇʀ ᴀᴄᴄᴏᴜɴᴛ :\n\nᴏᴘᴇɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ sᴇᴛᴛɪɴɢs.\n-> ᴀᴅᴍɪɴɪsᴛʀᴀᴛᴏʀs\n-> ᴄʟɪᴄᴋ ᴏɴ ʏᴏᴜʀ ɴᴀᴍᴇ\n-> ᴜɴᴄʜᴇᴄᴋ ᴀɴᴏɴʏᴍᴏᴜs ᴀᴅᴍɪɴ ᴘᴇʀᴍɪssɪᴏɴs.",
@@ -578,7 +578,7 @@ async def VIPmous_check(client, CallbackQuery):
         pass
 
 
-@app.on_callback_query(filters.regex("VIPPlaylists") & ~BANNED_USERS)
+@app.on_callback_query(filters.regex("DilPlaylists") & ~BANNED_USERS)
 @languageCB
 async def play_playlists_command(client, CallbackQuery, _):
     callback_data = CallbackQuery.data.strip()
@@ -718,12 +718,12 @@ from pyrogram.types import InlineKeyboardMarkup
 
 import config
 from AarohiX import Carbon, YouTube, app
-from AarohiX.core.call import VIP
+from AarohiX.core.call import Dil
 from AarohiX.misc import db
 from AarohiX.utils.database import add_active_video_chat, is_active_chat
 from AarohiX.utils.exceptions import AssistantErr
 from AarohiX.utils.inline import aq_markup, queuemarkup, close_markup, stream_markup, stream_markup2, panel_markup_4
-from AarohiX.utils.pastebin import VIPBin
+from AarohiX.utils.pastebin import DilBin
 from AarohiX.utils.stream.queue import put_queue, put_queue_index
 from youtubesearchpython.__future__ import VideosSearch
 
@@ -744,7 +744,7 @@ async def stream(
     if not result:
         return
     if forceplay:
-        await VIP.force_stop_stream(chat_id)
+        await Dil.force_stop_stream(chat_id)
     if streamtype == "playlist":
         msg = f"{_['play_19']}\n\n"
         count = 0
@@ -791,7 +791,7 @@ async def stream(
                     )
                 except:
                     raise AssistantErr(_["play_14"])
-                await VIP.join_call(
+                await Dil.join_call(
                     chat_id,
                     original_chat_id,
                     file_path,
@@ -828,7 +828,7 @@ async def stream(
         if count == 0:
             return
         else:
-            link = await VIPBin(msg)
+            link = await DilBin(msg)
             lines = msg.count("\n")
             if lines >= 17:
                 car = os.linesep.join(msg.split(os.linesep)[:17])
@@ -879,7 +879,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await VIP.join_call(
+            await Dil.join_call(
                 chat_id,
                 original_chat_id,
                 file_path,
@@ -937,7 +937,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await VIP.join_call(chat_id, original_chat_id, file_path, video=None)
+            await Dil.join_call(chat_id, original_chat_id, file_path, video=None)
             await put_queue(
                 chat_id,
                 original_chat_id,
@@ -989,7 +989,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await VIP.join_call(chat_id, original_chat_id, file_path, video=status)
+            await Dil.join_call(chat_id, original_chat_id, file_path, video=status)
             await put_queue(
                 chat_id,
                 original_chat_id,
@@ -1045,7 +1045,7 @@ async def stream(
             n, file_path = await YouTube.video(link)
             if n == 0:
                 raise AssistantErr(_["str_3"])
-            await VIP.join_call(
+            await Dil.join_call(
                 chat_id,
                 original_chat_id,
                 file_path,
@@ -1103,7 +1103,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await VIP.join_call(
+            await Dil.join_call(
                 chat_id,
                 original_chat_id,
                 link,
@@ -1159,5 +1159,4 @@ async def get_thumb(vidid):
     except Exception as e:
         return config.YOUTUBE_IMG_URL
     
-
 
