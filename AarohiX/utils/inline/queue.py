@@ -28,7 +28,7 @@ def queue_markup(
                 text="", url=f"tg://openmessage?user_id={OWNER_ID}",
             ),
             InlineKeyboardButton(
-                text="「 بواسطة 」", url=SUPPORT_CHAT,
+                text="السـورس 🤍", url=SUPPORT_CHAT,
             ),
         ],
     ]
@@ -54,7 +54,7 @@ def queue_markup(
                 text="", url=f"tg://openmessage?user_id={OWNER_ID}",
             ),
             InlineKeyboardButton(
-                text="「 بواسطة 」", url=SUPPORT_CHAT,
+                text="السـورس 🤍", url=SUPPORT_CHAT,
             ),
         ],
     ]
@@ -101,7 +101,7 @@ def aq_markup(_, chat_id):
                 text="", url=f"tg://openmessage?user_id={OWNER_ID}",
             ),
             InlineKeyboardButton(
-                text="「 بواسطة 」", url=SUPPORT_CHAT,
+                text="السـورس 🤍", url=SUPPORT_CHAT,
             ),
         ],
     ]
