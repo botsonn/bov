@@ -114,7 +114,7 @@ def stream_markup(_, videoid, chat_id):
         [
             InlineKeyboardButton(
                 text= "✚ ᴘʟᴀʏʟɪsᴛ",
-                callback_data=f"vip_playlist {videoid}"
+                callback_data=f"Dil_playlist {videoid}"
             ),
         
         
@@ -147,11 +147,11 @@ def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
         [
             InlineKeyboardButton(
                 text=_["P_B_1"],
-                callback_data=f"VIPPlaylists {videoid}|{user_id}|{ptype}|a|{channel}|{fplay}",
+                callback_data=f"DilPlaylists {videoid}|{user_id}|{ptype}|a|{channel}|{fplay}",
             ),
             InlineKeyboardButton(
                 text=_["P_B_2"],
-                callback_data=f"VIPPlaylists {videoid}|{user_id}|{ptype}|v|{channel}|{fplay}",
+                callback_data=f"DilPlaylists {videoid}|{user_id}|{ptype}|v|{channel}|{fplay}",
             ),
         ],
         [
