@@ -22,3 +22,19 @@ async def maker(client: Client, message: Message):
             ]
         )
     )
+
+@app.on_message(filters.command(["عاوز انصب","عاوزه انصب"], ""))
+async def maker(client: Client, message: Message):
+     await message.reply_video(
+        video="https://telegra.ph/file/5ec57dbb999310e0470d7.mp4",
+        caption="◍ للتنصيب تواصـل مع تيتو ❲ [اطغط هنا](https://t.me/ToPTeto) ❳ \n\n√",
+            reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                     InlineKeyboardButton(
+                        message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+                ],
+            ]
+        )
+     )
+     
