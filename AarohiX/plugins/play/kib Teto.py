@@ -7,7 +7,7 @@ from AarohiX import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 
 
 
-REPLY_MESSAGE = "↞ اهلا بك في قائمه المميزات 🫧**"
+REPLY_MESSAGE = "**صلي علي النبي وتبسم ♥️✨**"
 
 REPLY_MESSAGE_BUTTONS = [
     [
