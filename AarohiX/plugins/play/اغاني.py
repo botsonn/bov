@@ -5,7 +5,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, 
 from AarohiX import app
 
 
-@app.on_message(filters.command(["اغاني","الفنان","ميوزك"], ""))
+@app.on_message(filters.command(["اغاني","ميوزك"], ""))
 async def music(c: Client, m: Message):
     global mid
     mid = m.id
@@ -15,10 +15,10 @@ async def music(c: Client, m: Message):
         
         [InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{app.username}?startgroup=new")],
    
-        [InlineKeyboardButton("𝗦𝗢𝗨𝗥𝗖𝗘 𝗧𝗘𝗧𝗢", url=f"https://t.me/wx_pm")],
+        [InlineKeyboardButton("السـورس 🤍", url=f"https://t.me/wx_pm")],
         
     ])
-    await m.reply_text("◍ اهلا بيك بقائمه تصنيفات الاغاني اختر ما تريد\n√", reply_markup=keyboard)
+    await m.reply_text("↢ اهلا بيك بقائمه تصنيفات الاغاني اختر ما تريد\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^music2 (\\d+)$"))
@@ -33,10 +33,10 @@ async def music2(c: Client, m: CallbackQuery):
  
         [InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{app.username}?startgroup=new")],
 
-        [InlineKeyboardButton("𝗦𝗢𝗨𝗥𝗖𝗘 𝗧𝗘𝗧𝗢", url=f"https://t.me/wx_pm")],
+        [InlineKeyboardButton("السـورس 🤍", url=f"https://t.me/wx_pm")],
         
     ])
-    await m.message.edit_text("◍ اهلا بيك بقائمه تصنيفات الاغاني اختر ما تريد\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اهلا بيك بقائمه تصنيفات الاغاني اختر ما تريد\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^araby (\\d+)$"))
@@ -66,10 +66,10 @@ async def araby(c: Client, m: CallbackQuery):
 
         [InlineKeyboardButton("القائمه الرئيسيه ⏺", callback_data="music2 " + str(m.from_user.id))],
         [InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{app.username}?startgroup=new")],
-        [InlineKeyboardButton("𝗦𝗢𝗨𝗥𝗖𝗘 𝗧𝗘𝗧𝗢", url=f"https://t.me/wx_pm")],
+        [InlineKeyboardButton("السـورس 🤍", url=f"https://t.me/wx_pm")],
         
     ])
-    await m.message.edit_text("◍ اهلا بك بقائمه الالفنانين اختر احدي المغنيين\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اهلا بك بقائمه الالفنانين اختر احدي المغنيين\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^mhrgan (\\d+)$"))
@@ -88,7 +88,7 @@ async def mhrgan(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("القائمه الرئيسيه ⏺", callback_data="araby " + str(m.from_user.id))],
         [InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{app.username}?startgroup=new")],
     ])
-    await m.message.edit_text("◍ اختر ماتريد من قائمة اغاني\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اختر ماتريد من قائمة اغاني\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^mhrgan1 (\\d+)$"))
@@ -124,7 +124,7 @@ async def mhrgan1(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{app.username}?startgroup=new")],
 
     ])
-    await m.message.edit_text("◍ اختر ماتريد من قائمة الهرجانات رقم 1\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اختر ماتريد من قائمة الهرجانات رقم 1\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^mhrgan2 (\\d+)$"))
@@ -160,7 +160,7 @@ async def mhrgan2(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{app.username}?startgroup=new")],
 
     ])
-    await m.message.edit_text("◍ اختر ماتريد من قائمة المهرجانات رقم 2\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اختر ماتريد من قائمة المهرجانات رقم 2\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^mhrgan3 (\\d+)$"))
@@ -191,7 +191,7 @@ async def mhrgan3(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{app.username}?startgroup=new")],
 
     ])
-    await m.message.edit_text("◍ اختر ماتريد من قائمة المهرجانات رقم 3\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اختر ماتريد من قائمة المهرجانات رقم 3\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^mhrgan4 (\\d+)$"))
@@ -222,7 +222,7 @@ async def mhrgan4(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{app.username}?startgroup=new")],
 
     ])
-    await m.message.edit_text("◍ اختر ماتريد من قائمة المهرجانات رقم 4\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اختر ماتريد من قائمة المهرجانات رقم 4\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^Xmhrg1 (\\d+)$"))
@@ -950,7 +950,7 @@ async def adham(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{app.username}?startgroup=new")],
 
     ])
-    await m.message.edit_text("◍ اختر ماتريد من قائمة اغاني ادهم نابلسي", reply_markup=keyboard)
+    await m.message.edit_text("↢ اختر ماتريد من قائمة اغاني ادهم نابلسي", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^Xadh1 (\\d+)$"))
@@ -1073,7 +1073,7 @@ async def agnaby(c: Client, m: CallbackQuery):
 
     ])
 
-    await m.message.edit_text("◍ اهلا بك بقائمه الاغاني الاجنبي اختر احدي المغنيين\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اهلا بك بقائمه الاغاني الاجنبي اختر احدي المغنيين\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^agn1 (\\d+)$"))
@@ -1101,7 +1101,7 @@ async def agn1(c: Client, m: CallbackQuery):
 
     ])
 
-    await m.message.edit_text("◍ اهلا بك بقائمه اغاني 𝙹𝚄𝚂𝚃𝙸𝙽𝙴 𝙱𝙸𝙱𝙴𝚁\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اهلا بك بقائمه اغاني 𝙹𝚄𝚂𝚃𝙸𝙽𝙴 𝙱𝙸𝙱𝙴𝚁\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^agn2 (\\d+)$"))
@@ -1123,7 +1123,7 @@ async def agn2(c: Client, m: CallbackQuery):
 
     ])
 
-    await m.message.edit_text("◍ اهلا بك بقائمه اغاني 𝙼𝙰𝚁𝙾𝙾𝙽\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اهلا بك بقائمه اغاني 𝙼𝙰𝚁𝙾𝙾𝙽\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^agn3 (\\d+)$"))
@@ -1145,7 +1145,7 @@ async def agn3(c: Client, m: CallbackQuery):
 
     ])
 
-    await m.message.edit_text("◍ اهلا بك بقائمه اغاني 𝚂𝙸𝙰 \n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اهلا بك بقائمه اغاني 𝚂𝙸𝙰 \n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^agn4 (\\d+)$"))
@@ -1169,7 +1169,7 @@ async def agn4(c: Client, m: CallbackQuery):
 
     ])
 
-    await m.message.edit_text("◍ اهلا بك بقائمه اغاني 𝙴𝙳 𝚂𝙷𝙴𝙴𝚁𝙰𝙽\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اهلا بك بقائمه اغاني 𝙴𝙳 𝚂𝙷𝙴𝙴𝚁𝙰𝙽\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^agn5 (\\d+)$"))
@@ -1192,7 +1192,7 @@ async def agn5(c: Client, m: CallbackQuery):
 
     ])
 
-    await m.message.edit_text("◍ اهلا بك بقائمه اغاني 𝙿𝙾𝚂𝚃 𝙼𝙰𝙻𝙾𝙽�\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اهلا بك بقائمه اغاني 𝙿𝙾𝚂𝚃 𝙼𝙰𝙻𝙾𝙽�\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^agn6 (\\d+)$"))
@@ -1215,7 +1215,7 @@ async def agn6(c: Client, m: CallbackQuery):
 
     ])
 
-    await m.message.edit_text("◍ اهلا بك بقائمه اغاني 𝚃𝙰𝚈𝙻𝙾𝚁 𝚂𝚆𝙸𝙵𝚃\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اهلا بك بقائمه اغاني 𝚃𝙰𝚈𝙻𝙾𝚁 𝚂𝚆𝙸𝙵𝚃\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^agn7 (\\d+)$"))
@@ -1238,7 +1238,7 @@ async def agn7(c: Client, m: CallbackQuery):
 
     ])
 
-    await m.message.edit_text("◍ اهلا بك بقائمه اغاني 𝚃𝙷𝙴 𝙲𝙷𝙰𝙸𝙽𝚂𝙼𝙾𝙺𝙴𝚁𝚂\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اهلا بك بقائمه اغاني 𝚃𝙷𝙴 𝙲𝙷𝙰𝙸𝙽𝚂𝙼𝙾𝙺𝙴𝚁𝚂\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^agn8 (\\d+)$"))
@@ -1261,7 +1261,7 @@ async def agn8(c: Client, m: CallbackQuery):
 
     ])
 
-    await m.message.edit_text("◍ اهلا بك بقائمه اغاني 𝙱𝙸𝙻𝙻𝙸𝙴 𝙴𝙸𝙻𝙸𝚂𝙷\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اهلا بك بقائمه اغاني 𝙱𝙸𝙻𝙻𝙸𝙴 𝙴𝙸𝙻𝙸𝚂𝙷\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^agn9 (\\d+)$"))
@@ -1284,7 +1284,7 @@ async def agn9(c: Client, m: CallbackQuery):
 
     ])
 
-    await m.message.edit_text("◍ اهلا بك بقائمه اغاني 𝙴𝙸𝙼𝙰𝙶𝙸𝙽𝙴 𝙳𝚁𝙰𝙶𝙾𝙽\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اهلا بك بقائمه اغاني 𝙴𝙸𝙼𝙰𝙶𝙸𝙽𝙴 𝙳𝚁𝙰𝙶𝙾𝙽\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^agn10 (\\d+)$"))
@@ -1307,7 +1307,7 @@ async def agn10(c: Client, m: CallbackQuery):
 
     ])
 
-    await m.message.edit_text("◍ اهلا بك بقائمه اغاني 𝙲𝙷??𝚁𝙻𝙸𝙴 𝙿𝚄𝚃𝙷\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اهلا بك بقائمه اغاني 𝙲𝙷??𝚁𝙻𝙸𝙴 𝙿𝚄𝚃𝙷\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^agn11 (\\d+)$"))
@@ -1330,7 +1330,7 @@ async def agn11(c: Client, m: CallbackQuery):
 
     ])
 
-    await m.message.edit_text("◍ اهلا بك بقائمه اغاني 𝙷𝙰𝙻𝚂𝙴𝚈\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اهلا بك بقائمه اغاني 𝙷𝙰𝙻𝚂𝙴𝚈\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^agn12 (\\d+)$"))
@@ -1353,7 +1353,7 @@ async def agn12(c: Client, m: CallbackQuery):
 
     ])
 
-    await m.message.edit_text("◍ اهلا بك بقائمه اغاني 𝙱𝙴𝙱𝙴 𝚁𝙴𝚇𝙷𝙰\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اهلا بك بقائمه اغاني 𝙱𝙴𝙱𝙴 𝚁𝙴𝚇𝙷𝙰\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^mix (\\d+)$"))
@@ -1393,7 +1393,7 @@ async def mix(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{app.username}?startgroup=new")],
 
     ])
-    await m.message.edit_text("◍ Select What you want from the Song", reply_markup=keyboard)
+    await m.message.edit_text("↢ Select What you want from the Song", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^xagn1 (\\d+)$"))
@@ -2339,7 +2339,7 @@ async def ammar(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{app.username}?startgroup=new")],
 
     ])
-    await m.message.edit_text("◍ اختر ماتريد من قائمة اغاني عمار حسني", reply_markup=keyboard)
+    await m.message.edit_text("↢ اختر ماتريد من قائمة اغاني عمار حسني", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^Xamm1 (\\d+)$"))
@@ -2538,7 +2538,7 @@ async def asala(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{app.username}?startgroup=new")],
 
     ])
-    await m.message.edit_text("◍ اختر ماتريد من قائمة اغاني اصاله 🔊\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اختر ماتريد من قائمة اغاني اصاله 🔊\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^Xasa1 (\\d+)$"))
@@ -2665,7 +2665,7 @@ async def bablo(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{app.username}?startgroup=new")],
 
     ])
-    await m.message.edit_text("◍ اختر ماتريد من قائمة اغاني بابلو\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اختر ماتريد من قائمة اغاني بابلو\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^Xbab1 (\\d+)$"))
@@ -2781,7 +2781,7 @@ async def dyab(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{app.username}?startgroup=new")],
 
     ])
-    await m.message.edit_text("◍ اختر ماتريد من قائمة اغاني\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اختر ماتريد من قائمة اغاني\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^Xdya1 (\\d+)$"))
@@ -2981,7 +2981,7 @@ async def elesa(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{app.username}?startgroup=new")],
 
     ])
-    await m.message.edit_text("◍ اختر ماتريد من قائمة اغاني اليسا\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اختر ماتريد من قائمة اغاني اليسا\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^Xeles1 (\\d+)$"))
@@ -3122,7 +3122,7 @@ async def hamaky(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{app.username}?startgroup=new")],
 
     ])
-    await m.message.edit_text("◍ اختر ماتريد من قائمة اغاني حماقي\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اختر ماتريد من قائمة اغاني حماقي\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^Xham1 (\\d+)$"))
@@ -3269,7 +3269,7 @@ async def helal(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{app.username}?startgroup=new")],
 
     ])
-    await m.message.edit_text("◍ اختر ماتريد من قائمة اغاني حماده هلال", reply_markup=keyboard)
+    await m.message.edit_text("↢ اختر ماتريد من قائمة اغاني حماده هلال", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^Xhela1 (\\d+)$"))
@@ -3380,7 +3380,7 @@ async def joker(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{app.username}?startgroup=new")],
 
     ])
-    await m.message.edit_text("◍ اختر ماتريد من قائمة اغاني الجوكر\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اختر ماتريد من قائمة اغاني الجوكر\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^Xjok1 (\\d+)$"))
@@ -3533,7 +3533,7 @@ async def kamel(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{app.username}?startgroup=new")],
 
     ])
-    await m.message.edit_text("◍ اختر ماتريد من قائمة اغاني احمد كامل\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اختر ماتريد من قائمة اغاني احمد كامل\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^Xkam1 (\\d+)$"))
@@ -3698,7 +3698,7 @@ async def marwan(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{app.username}?startgroup=new")],
 
     ])
-    await m.message.edit_text("◍ اختر ماتريد من قائمة اغاني مروان موسي\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اختر ماتريد من قائمة اغاني مروان موسي\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^Xmar1 (\\d+)$"))
@@ -3787,7 +3787,7 @@ async def mosaeed(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{app.username}?startgroup=new")],
 
     ])
-    await m.message.edit_text("◍ اختر ماتريد من قائمة اغاني محمد سعيد\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اختر ماتريد من قائمة اغاني محمد سعيد\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^Xsaed1 (\\d+)$"))
@@ -3922,7 +3922,7 @@ async def sahby(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{app.username}?startgroup=new")],
 
     ])
-    await m.message.edit_text("◍ اختر ماتريد من قائمة الاغاني الشعبي\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اختر ماتريد من قائمة الاغاني الشعبي\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^Xsahb1 (\\d+)$"))
@@ -4122,7 +4122,7 @@ async def tamer(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{app.username}?startgroup=new")],
 
     ])
-    await m.message.edit_text("◍ اختر ماتريد من قائمة اغاني تامر حسني\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اختر ماتريد من قائمة اغاني تامر حسني\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^Xtam1 (\\d+)$"))
@@ -4354,7 +4354,7 @@ async def wegz(c: Client, m: CallbackQuery):
         [InlineKeyboardButton("ضيـف البـوت لمجمـوعتـك ✅", url=f"https://t.me/{app.username}?startgroup=new")],
 
     ])
-    await m.message.edit_text("◍ اختر ماتريد من قائمة اغاني ويجز\n√", reply_markup=keyboard)
+    await m.message.edit_text("↢ اختر ماتريد من قائمة اغاني ويجز\n√", reply_markup=keyboard)
 
 
 @app.on_callback_query(filters.regex("^Xweg1 (\\d+)$"))
