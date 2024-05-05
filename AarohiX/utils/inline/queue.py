@@ -1,4 +1,5 @@
 from typing import Union
+from config import OWNER_ID, SUPPORT_CHAT
 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
@@ -21,7 +22,15 @@ def queue_markup(
                 text=_["CLOSE_BUTTON"],
                 callback_data="close",
             ),
-        ]
+        ],
+         [
+            InlineKeyboardButton(
+                text="", url=f"tg://openmessage?user_id={OWNER_ID}",
+            ),
+            InlineKeyboardButton(
+                text="「 بواسطة 」", url=SUPPORT_CHAT,
+            ),
+        ],
     ]
     dur = [
         [
@@ -38,6 +47,14 @@ def queue_markup(
             InlineKeyboardButton(
                 text=_["CLOSE_BUTTON"],
                 callback_data="close",
+            ),
+        ],
+         [
+            InlineKeyboardButton(
+                text="", url=f"tg://openmessage?user_id={OWNER_ID}",
+            ),
+            InlineKeyboardButton(
+                text="「 بواسطة 」", url=SUPPORT_CHAT,
             ),
         ],
     ]
@@ -57,7 +74,15 @@ def queue_back_markup(_, CPLAY):
                     text=_["CLOSE_BUTTON"],
                     callback_data="close",
                 ),
-            ]
+           ],
+             [
+            InlineKeyboardButton(
+                text="", url=f"tg://openmessage?user_id={OWNER_ID}",
+            ),
+            InlineKeyboardButton(
+                text="السـورس 🤍", url=SUPPORT_CHAT,
+            ),
+        ],
         ]
     )
     return upl
@@ -65,61 +90,19 @@ def queue_back_markup(_, CPLAY):
 
 def aq_markup(_, chat_id):
     buttons = [
-        [
-            InlineKeyboardButton(text="IIᴘᴀᴜsᴇ", callback_data=f"ADMIN Pause|{chat_id}"),
-            InlineKeyboardButton(text="▢sᴛᴏᴘ▢", callback_data=f"ADMIN Stop|{chat_id}"),
-            InlineKeyboardButton(text="sᴋɪᴘ‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
-
-        ],
-        [
-            InlineKeyboardButton(text="▷ʀᴇsᴜᴍᴇ", callback_data=f"ADMIN Resume|{chat_id}"),
-            InlineKeyboardButton(text="ʀᴇᴘʟᴀʏ↺", callback_data=f"ADMIN Replay|{chat_id}"),
-        ],
-        [
+        #[
+            #InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
+            #InlineKeyboardButton(text="II", callback_data=f"ADMIN Pause|{chat_id}"),
+            #InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
+            #InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
+        #],
+         [
             InlineKeyboardButton(
-                text="๏ ᴍᴏʀᴇ ๏", url="https://t.me/Ur_rishu_143",
-                
+                text="", url=f"tg://openmessage?user_id={OWNER_ID}",
+            ),
+            InlineKeyboardButton(
+                text="「 بواسطة 」", url=SUPPORT_CHAT,
             ),
         ],
     ]
-    return buttons
-
-
-def queuemarkup(_, vidid, chat_id):
-
-    buttons = [
-        [
-            InlineKeyboardButton(
-                text=_["S_B_5"],
-                url=f"https://t.me/{app.username}?startgroup=true",
-            ),
-        ],
-
-
-        [
-            InlineKeyboardButton(
-                text="II ᴘᴀᴜsᴇ",
-                callback_data=f"ADMIN Pause|{chat_id}",
-            ),
-
-            InlineKeyboardButton(
-                text="▢ sᴛᴏᴘ", callback_data=f"ADMIN Stop|{chat_id}"
-            ),
-
-            InlineKeyboardButton(
-                text="sᴋɪᴘ ‣‣I", callback_data=f"ADMIN Skip|{chat_id}"
-            ),
-        ],
-        [
-            InlineKeyboardButton(text="▷ ʀᴇsᴜᴍᴇ", callback_data=f"ADMIN Resume|{chat_id}"),
-            InlineKeyboardButton(text="ʀᴇᴘʟᴀʏ ↺", callback_data=f"ADMIN Replay|{chat_id}"),
-        ],
-        [
-            InlineKeyboardButton(
-                text="๏ ᴍᴏʀᴇ ๏", url="https://t.me/Ur_rishu_143",
-                
-            ),
-        ],
-    ]
-
     return buttons
