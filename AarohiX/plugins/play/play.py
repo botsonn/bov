@@ -7,7 +7,7 @@ from pytgcalls.exceptions import NoActiveGroupCall
 from AarohiX.utils.database import get_assistant
 import config
 from AarohiX import Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app
-from AarohiX.core.call import VIP
+from AarohiX.core.call import Dil
 from AarohiX.misc import SUDOERS
 from AarohiX.utils import seconds_to_min, time_to_seconds
 from AarohiX.utils.channelplay import get_channeplayCB
