@@ -1,6 +1,17 @@
-from pyrogram import Client
-from pyrogram import filters
+import asyncio
+
+import random
+
 from AarohiX import app
+
+from pyrogram.types import (InlineKeyboardButton,
+
+                            InlineKeyboardMarkup, Message)
+
+from strings.filters import command
+
+from pyrogram import filters, Client
+
 
 @app.on_message(filters.command("رتبتي", ""))
 async def rotba(_: Client, message: Message):
