@@ -19,3 +19,15 @@ def gay_calculator_command(client, message: Message):
     gay_percentage = calculate_gay_percentage()
     gay_response = generate_gay_response(gay_percentage)
     message.reply_text(f"↢نسبه الرجوله: {gay_percentage}%\n{gay_response}")
+
+
+
+@app.on_message(filters.command(["الرابط","/link"], "") & filters.group & ~filters.private)
+async def invitelink(client, message):
+    chid = message.chat.id
+    try:
+        invitelink = await client.export_chat_invite_link(chid)
+    except:
+        return await message.reply_text("- قم برفعي مسؤول في المجموعة أولا ؟")
+    await message.reply_text(f"**↢ تم إنشاء رابط الدعوة بنجاح :**\n {invitelink}")
+    
