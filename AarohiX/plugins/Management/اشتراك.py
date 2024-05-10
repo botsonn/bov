@@ -7,7 +7,7 @@ from AarohiX import app
 import config
 
 channel = config.CHANNEL_LINK
-Nem = config.BOT_NAME + " شغل"
+Nem = config.BOT_NAME + " تشغيل"
 async def subscription(_, __: Client, message: Message):
     user_id = message.from_user.id
     try: 
@@ -28,7 +28,7 @@ async def command_handler(_: Client, message: Message):
             [Button(config.CHANNEL_NAME, url=f"https://t.me/{channel}")]
         ])
         await message.reply(
-            f"◇ عذرًا عزيزي {user} ، عليك الاشتراك في قناة البوت أولاً.",
+            f"↢ يـا عـزيزي {user} ارحـب 🏮\n\n- اشـترك بقناه التحديثات لتتمكن من التشغيـل 👇🎭",
             reply_markup=markup
         )
         
