@@ -17,6 +17,9 @@ BOT_TOKEN = getenv("BOT_TOKEN", "")
 
 Muntazer = getenv("muntazer", "WX_PM")
 
+CHANNEL_NAME = getenv("CHANNEL_NAME", "‹ اطغط للانضمام ›")
+CHANNEL_LINK = getenv("CHANNEL_LINK", "m_A_s_k33")
+
 MONGO_DB_URI = getenv("MONGO_DB_URI", "")
 
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 2097152))
