@@ -3,6 +3,7 @@ from pyrogram import Client, filters
 from strings.filters import command
 from config import OWNER_ID
 from pyrogram.types import Message , ReplyKeyboardMarkup , KeyboardButton
+from AarohiX import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 
 @app.on_message(filters.text & (filters.channel | filters.private))            
 async def hhhki(client: Client, message: Message):
@@ -13,8 +14,3 @@ async def hhhki(client: Client, message: Message):
         usr_id = message.from_user.id
         mention = message.from_user.mention
         await app.send_message(OWNER_ID, f"**↢ عـضو جديد انضم للبوت 🎄\n\n↢ الاسم : {mention}\n\n↢ الرساله : {msg}**")
-    else:
-        print("Received message from unknown user.")
-
-#COPY RIGHT ® 
-#WRITING BY TETO @G_7_Rr
