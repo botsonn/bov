@@ -3,7 +3,6 @@ from pyrogram import Client, filters
 from strings.filters import command
 from config import OWNER_ID
 from pyrogram.types import Message , ReplyKeyboardMarkup , KeyboardButton
-from AarohiX import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 
 @app.on_message(filters.text & (filters.channel | filters.private))            
 async def hhhki(client: Client, message: Message):
