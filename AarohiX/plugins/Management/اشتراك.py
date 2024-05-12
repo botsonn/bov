@@ -28,7 +28,7 @@ async def command_handler(_: Client, message: Message):
             [Button(config.CHANNEL_NAME, url=f"https://t.me/{channel}")]
         ])
         await message.reply(
-            f"↢ يـا عـزيزي {user} ارحـب 🏮\n\n- اشـترك بقناه التحديثات لتتمكن من التشغيـل 👇🎭",
+            f"↢ يـا عـزيزي : {user}\n\n- اشـترك بقناه التحـديثات لتتمكن من التشغيل🏮",
             reply_markup=markup
         )
         
