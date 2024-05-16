@@ -11,7 +11,7 @@ API_ID = int(getenv("API_ID", ""))
 
 API_HASH = getenv("API_HASH", "")
 
-BOT_IMAGE = getenv("BOT_IMAGE", "https://graph.org/file/8882cbd7cc786826d9ecb.jpg")
+BOT_IMAGE = getenv("BOT_IMAGE", "https://telegra.ph/file/aead56c5c3c84c12df881.mp4")
 
 BOT_NAME = getenv("BOT_NAME","")
 
@@ -99,7 +99,7 @@ clean = {}
 autoclean = []
 
 START_IMG_URL = getenv(
-    "START_IMG_URL", "https://te.legra.ph/file/407ce4c57a645c11f65c0.jpg"
+    "START_IMG_URL", "https://telegra.ph/file/aead56c5c3c84c12df881.mp4"
 )
 PING_IMG_URL = getenv(
     "PING_IMG_URL", "https://te.legra.ph/file/f70081ed82879c1a24068.jpg"
