@@ -73,13 +73,13 @@
       },
       "BOT_IMAGE": {
         "description": "قـم بـوضع كلـشيه الاشتراك الاجباري ⦗ تلكراف ميديا ⦘",
-        "value": "https://te.legra.ph/file/4807752a011965b771900.jpg",
+        "value": "https://telegra.ph/file/aead56c5c3c84c12df881.mp4",
         "required": false
         
       },
       "START_IMG_URL": {
         "description": "قـم بـوضع كلـشيه الاسـتارت ⦗ تلكراف ميديا ⦘",
-        "value": "https://te.legra.ph/file/bb717513daedb244d1428.jpg",
+        "value": "https://telegra.ph/file/aead56c5c3c84c12df881.mp4",
         "required": false
         
       },
