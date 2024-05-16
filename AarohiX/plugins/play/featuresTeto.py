@@ -12,7 +12,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, 
 from AarohiX import app
 from random import  choice, randint
 
-@app.on_message(filters.command(["صوره", "صور", "صورهه", "صور"], ""))
+@app.on_message(filters.command(["صوره","صور"], ""))
 async def teto(client: Client, message: Message):
     rl = random.randint(2,75)
     url = f"https://t.me/vnnkli/{rl}"
