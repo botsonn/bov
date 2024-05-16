@@ -7,7 +7,7 @@ from AarohiX import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 
 
 
-REPLY_MESSAGE = "صلي علي النبي وتبسم ♥️✨"
+REPLY_MESSAGE = "**صلي علي اشرف الخلق محمد ﷺ**"
 
 REPLY_MESSAGE_BUTTONS = [
     [
@@ -80,7 +80,7 @@ def reply_to_HEY(Client, message):
         reply_markup=InlineKeyboardMarkup(
             [
             [
-                InlineKeyboardButton("ضيف البوت لمجموعتك 🌚", url=f"https://t.me/{app.username}?startgroup=true"),
+                InlineKeyboardButton("ضيف البوت لمجموعتـك🎄", url=f"https://t.me/{app.username}?startgroup=true"),
             ]
          ]
      )
