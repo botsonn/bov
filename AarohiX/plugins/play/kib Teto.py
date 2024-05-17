@@ -7,7 +7,7 @@ from AarohiX import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 
 
 
-REPLY_MESSAGE = "**صلي علي اشرف الخلق محمد ﷺ**"
+REPLY_MESSAGE = "صلي علي اشرف الخلق محمد ﷺ"
 
 REPLY_MESSAGE_BUTTONS = [
     [
@@ -76,7 +76,7 @@ async def down(client, message):
 def reply_to_HEY(Client, message):
     message.reply_video(
         video=f"https://telegra.ph/file/dcfb16b43f82c3a82c2aa.mp4",
-        caption=f"""**↞ شكرا الاضافتي الي مجموعتك سوف اعمل بدون توقف \n↞ استمتع بمميزات لاحصر لها \n- فقط قم باضافتي من هنا ❄️👇**""",
+        caption=f"""↞ شكرا الاضافتي الي مجموعتك سوف اعمل بدون توقف \n↞ استمتع بمميزات لاحصر لها \n- فقط قم باضافتي من هنا ❄️👇""",
         reply_markup=InlineKeyboardMarkup(
             [
             [
