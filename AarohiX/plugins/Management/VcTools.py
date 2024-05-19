@@ -7,12 +7,12 @@ from config import OWNER_ID
 
 @app.on_message(filters.video_chat_started)
 async def brah(_, msg):
-       await msg.reply("**فتحتو الكول واخيـرا 🙄♥️ ؟**")
+       await msg.reply("فتحتو الكول واخيـرا 🙄♥️ ؟")
 
 
 @app.on_message(filters.video_chat_ended)
 async def brah2(_, msg):
-       await msg.reply("**ولك ليش قفلت الكول حتا انا كنت مندمج🙄؟**")
+       await msg.reply("ولك ليش قفلت الكول حتا انا كنت مندمج🙄؟")
 
 
 @app.on_message(filters.video_chat_members_invited)
