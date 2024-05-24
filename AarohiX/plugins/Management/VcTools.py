@@ -7,17 +7,17 @@ from config import OWNER_ID
 
 @app.on_message(filters.video_chat_started)
 async def brah(_, msg):
-       await msg.reply("فتحتو الكول واخيـرا 🙄♥️ ؟")
+       await msg.reply("**ابشر تم فتح المحادثه الصوتيه 🎙️**")
 
 
 @app.on_message(filters.video_chat_ended)
 async def brah2(_, msg):
-       await msg.reply("ولك ليش قفلت الكول حتا انا كنت مندمج🙄؟")
+       await msg.reply("**ولك انت ليش قفلت الكول 😿**")
 
 
 @app.on_message(filters.video_chat_members_invited)
 async def brah3(app :app, message:Message):
-           text = f"{message.from_user.mention} ɪɴᴠɪᴛᴇᴅ "
+           text = f"{message.from_user.mention} ↢ لقد دعي "
            x = 0
            for user in message.video_chat_members_invited.users:
              try:
